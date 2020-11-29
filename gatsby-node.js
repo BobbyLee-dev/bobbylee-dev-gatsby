@@ -1,5 +1,7 @@
 const path = require(`path`)
 const chunk = require(`lodash/chunk`)
+const { graphql } = require('gatsby')
+const { getPackedSettings } = require('http2')
 
 // This is a simple debugging tool
 // dd() will prettily dump to the terminal and kill the process
@@ -14,11 +16,34 @@ const chunk = require(`lodash/chunk`)
 exports.createPages = async gatsbyUtilities => {
   // Query our posts from the GraphQL server
   const posts = await getPosts(gatsbyUtilities)
+  const pages = await getPages(gatsbyUtilities)
+  console.log(pages)
+  // const GET_PAGES = `
+  //   query {
+  //     allWpPage {
+  //       nodes {
+  //         id
+  //         uri
+  //       }
+  //     }
+  //   }
+  // `
+  // const result = await graphql(GET_PAGES)
+
+  // result.data.allWpPage.nodes.forEach(page => {
+  //   actions.createPage({
+  //     path: page.uri,
+  //     component: path.resolve(`./src/templates/page.js`),
+  //     context: { id: page.id },
+  //   })
+  // })
 
   // If there are no posts in WordPress, don't do anything
   if (!posts.length) {
+    console.log('not getting pages')
     return
   }
+  await createIndividualWpPages({ pages, gatsbyUtilities })
 
   // If there are posts, create pages for them
   await createIndividualBlogPostPages({ posts, gatsbyUtilities })
@@ -26,6 +51,34 @@ exports.createPages = async gatsbyUtilities => {
   // And a paginated archive
   await createBlogPostArchive({ posts, gatsbyUtilities })
 }
+
+/**
+ * This function creates all the individual blog pages in this site
+ */
+const createIndividualWpPages = async ({ pages, gatsbyUtilities }) =>
+  Promise.all(
+    pages.map(page =>
+      // createPage is an action passed to createPages
+      // See https://www.gatsbyjs.com/docs/actions#createPage for more info
+      gatsbyUtilities.actions.createPage({
+        // Use the WordPress uri as the Gatsby page path
+        // This is a good idea so that internal links and menus work 👍
+        path: page.uri,
+
+        // use the blog post template as the page component
+        component: path.resolve(`./src/templates/page.js`),
+
+        // `context` is available in the template as a prop and
+        // as a variable in GraphQL.
+        context: {
+          // we need to add the post id here
+          // so our blog post template knows which blog post
+          // the current page is (when you open it in a browser)
+          id: page.id,
+        },
+      })
+    )
+  )
 
 /**
  * This function creates all the individual blog pages in this site
@@ -119,6 +172,40 @@ async function createBlogPostArchive({ posts, gatsbyUtilities }) {
       })
     })
   )
+}
+
+/**
+ * This function queries Gatsby's GraphQL server and asks for
+ * All WordPress blog posts. If there are any GraphQL error it throws an error
+ * Otherwise it will return the posts 🙌
+ *
+ * We're passing in the utilities we got from createPages.
+ * So see https://www.gatsbyjs.com/docs/node-apis/#createPages for more info!
+ */
+async function getPages({ graphql, reporter }) {
+  const graphqlPageResult = await graphql(/* GraphQL */ `
+    query WpPages {
+      allWpPage {
+        nodes {
+          id
+          uri
+        }
+      }
+    }
+  `)
+
+  console.log('lololol')
+  console.log(graphqlPageResult.data.allWpPage.nodes)
+
+  if (graphqlPageResult.errors) {
+    reporter.panicOnBuild(
+      `There was an error loading your pages lololol`,
+      graphqlPageResult.errors
+    )
+    return
+  }
+
+  return graphqlPageResult.data.allWpPage.nodes
 }
 
 /**
