@@ -174,9 +174,6 @@ async function getPages({ graphql, reporter }) {
     }
   `)
 
-  console.log('lololol')
-  console.log(graphqlPageResult.data.allWpPage.nodes)
-
   if (graphqlPageResult.errors) {
     reporter.panicOnBuild(
       `There was an error loading your pages lololol`,
