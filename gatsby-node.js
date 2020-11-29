@@ -17,26 +17,6 @@ exports.createPages = async gatsbyUtilities => {
   // Query our posts from the GraphQL server
   const posts = await getPosts(gatsbyUtilities)
   const pages = await getPages(gatsbyUtilities)
-  console.log(pages)
-  // const GET_PAGES = `
-  //   query {
-  //     allWpPage {
-  //       nodes {
-  //         id
-  //         uri
-  //       }
-  //     }
-  //   }
-  // `
-  // const result = await graphql(GET_PAGES)
-
-  // result.data.allWpPage.nodes.forEach(page => {
-  //   actions.createPage({
-  //     path: page.uri,
-  //     component: path.resolve(`./src/templates/page.js`),
-  //     context: { id: page.id },
-  //   })
-  // })
 
   // If there are no posts in WordPress, don't do anything
   if (!posts.length) {
