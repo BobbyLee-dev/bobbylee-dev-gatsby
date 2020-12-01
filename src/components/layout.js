@@ -32,7 +32,10 @@ const Layout = ({ children }) => {
   return (
     <>
       {/* <Header siteTitle={data.site.siteMetadata?.title || `Title`} /> */}
-      <Header siteTitle={wpSettingsInfo.title} siteUrl={wpSettingsInfo.url} />
+      <Header
+        siteTitle={wpSettingsInfo.title}
+        wpSourceUrl={wpSettingsInfo.url}
+      />
 
       <div
         style={{

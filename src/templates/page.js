@@ -16,9 +16,7 @@ const PageTemplate = ({ data: { page } }) => {
       <SEO title={page.title} />
 
       <article className="page" itemScope itemType="http://schema.org/Article">
-        <header>
-          <h1 itemProp="headline">{parse(page.title)}</h1>
-        </header>
+        {!page.isFrontPage && <h1 itemProp="headline">{parse(page.title)}</h1>}
 
         {!!page.content && (
           <section itemProp="articleBody">{parse(page.content)}</section>
@@ -42,6 +40,7 @@ export const pageQuery = graphql`
       id
       content
       title
+      isFrontPage
     }
   }
 `

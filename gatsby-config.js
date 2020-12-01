@@ -24,6 +24,9 @@ module.exports = {
         },
       },
     },
+    {
+      resolve: `gatsby-plugin-emotion`,
+    },
 
     /**
      * We need this plugin so that it adds the "File.publicURL" to our site

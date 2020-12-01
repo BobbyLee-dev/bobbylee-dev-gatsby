@@ -8,7 +8,6 @@ const SiteTitleEl = ({ siteTitle }) => {
         <Link
           to="/"
           style={{
-            color: `white`,
             textDecoration: `none`,
           }}
         >
@@ -22,7 +21,6 @@ const SiteTitleEl = ({ siteTitle }) => {
         <Link
           to="/"
           style={{
-            color: `white`,
             textDecoration: `none`,
           }}
         >
