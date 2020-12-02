@@ -1,10 +1,10 @@
-import React from "react"
-import { Link, graphql } from "gatsby"
-import parse from "html-react-parser"
-
-import Bio from "../components/bio"
-import Layout from "../components/layout"
-import SEO from "../components/seo"
+import React from 'react'
+import { Link, graphql } from 'gatsby'
+import parse from 'html-react-parser'
+import PropTypes from 'prop-types'
+import Bio from '../components/bio'
+import Layout from '../components/layout'
+import SEO from '../components/seo'
 
 const BlogIndex = ({
   data,
@@ -87,3 +87,7 @@ export const pageQuery = graphql`
     }
   }
 `
+
+Layout.propTypes = {
+  isHomePage: PropTypes.bool,
+}

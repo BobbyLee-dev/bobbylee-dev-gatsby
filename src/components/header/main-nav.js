@@ -1,6 +1,7 @@
 import styled from '@emotion/styled'
 import { useStaticQuery, graphql, Link } from 'gatsby'
 import React from 'react'
+import PropTypes from 'prop-types'
 
 const MainNav = ({ wpSourceUrl }) => {
   const wpMainMenu = useStaticQuery(graphql`
@@ -40,15 +41,17 @@ const MainNav = ({ wpSourceUrl }) => {
     <Menu>
       <ul>
         {menuItems.map(item => (
-          <li>
-            <Link to={item.url.replace(wpSourceUrl, '')} key={item.id}>
-              {item.label}
-            </Link>
+          <li key={item.id}>
+            <Link to={item.url.replace(wpSourceUrl, '')}>{item.label}</Link>
           </li>
         ))}
       </ul>
     </Menu>
   )
+}
+
+Link.propTypes = {
+  to: PropTypes.string,
 }
 
 export default MainNav

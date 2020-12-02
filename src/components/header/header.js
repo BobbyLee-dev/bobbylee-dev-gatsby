@@ -21,12 +21,12 @@ const SiteHeader = ({ siteTitle, wpSourceUrl }) => {
   )
 }
 
-Header.propTypes = {
-  siteTitle: PropTypes.string,
+SiteTitleEl.propTypes = {
+  siteTitle: PropTypes.string.isRequired,
 }
 
-Header.defaultProps = {
-  siteTitle: ``,
+MainNav.propTypes = {
+  wpSourceUrl: PropTypes.string.isRequired,
 }
 
 export default SiteHeader
