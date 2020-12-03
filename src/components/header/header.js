@@ -5,14 +5,37 @@ import styled from '@emotion/styled'
 import MainNav from './main-nav'
 
 const Header = styled.header`
+  background-color: #2a2b2d;
   display: flex;
+  align-items: center;
   justify-content: space-between;
-  padding: 20px;
+  padding: 10px 20px;
+  @media (min-width: 1400px) {
+    padding: 10px 40px;
+  }
+  @media (min-width: 2000px) {
+    padding: 10px 80px;
+  }
+  .site-title {
+    font-weight: bold;
+    margin: 0;
+    font-size: 22px;
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+      Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+    @media (min-width: 768px) {
+      font-size: 30px;
+    }
+    @media (min-width: 1400px) {
+      font-size: 40px;
+    }
+    a {
+      color: #fff;
+    }
+  }
 `
 
 const SiteHeader = ({ siteTitle, wpSourceUrl }) => {
-  // const siteTitleTag = window.location.pathname === '/' ? 'h1' : 'div'
-
   return (
     <Header>
       <SiteTitleEl siteTitle={siteTitle} />

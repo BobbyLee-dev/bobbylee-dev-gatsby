@@ -11,7 +11,7 @@ const SiteTitleEl = ({ siteTitle }) => {
             textDecoration: `none`,
           }}
         >
-          {siteTitle}
+          {`{ ${siteTitle} }`}
         </Link>{' '}
       </h1>
     )
@@ -24,7 +24,7 @@ const SiteTitleEl = ({ siteTitle }) => {
             textDecoration: `none`,
           }}
         >
-          {siteTitle}
+          {`{ ${siteTitle} }`}
         </Link>{' '}
       </div>
     )

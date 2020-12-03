@@ -3,6 +3,23 @@ import { useStaticQuery, graphql, Link } from 'gatsby'
 import React from 'react'
 import PropTypes from 'prop-types'
 
+const Menu = styled.nav`
+  ul {
+    margin: 0;
+    display: flex;
+    list-style: none;
+    li {
+      margin: 10px;
+      a {
+        padding: 10px 20px;
+        text-decoration: none;
+        color: #fff;
+        font-weight: bold;
+      }
+    }
+  }
+`
+
 const MainNav = ({ wpSourceUrl }) => {
   const wpMainMenu = useStaticQuery(graphql`
     query {
@@ -23,20 +40,6 @@ const MainNav = ({ wpSourceUrl }) => {
     url: item.url,
     id: item.id,
   }))
-
-  const Menu = styled.nav`
-    ul {
-      display: flex;
-      list-style: none;
-      li {
-        margin: 10px;
-        a {
-          text-decoration: none;
-        }
-      }
-    }
-  `
-
   return (
     <Menu>
       <ul>
