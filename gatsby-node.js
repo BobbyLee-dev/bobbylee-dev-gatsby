@@ -121,7 +121,7 @@ async function createBlogPostArchive({ posts, gatsbyUtilities }) {
           // we want the first page to be "/" and any additional pages
           // to be numbered.
           // "/blog/2" for example
-          return page === 1 ? `/blog` : `/blog/${page}`
+          return page === 1 ? `/about/blog` : `/about/blog/${page}`
         }
 
         return null
@@ -176,7 +176,7 @@ async function getPages({ graphql, reporter }) {
 
   if (graphqlPageResult.errors) {
     reporter.panicOnBuild(
-      `There was an error loading your pages lololol`,
+      `There was an error loading your pages`,
       graphqlPageResult.errors
     )
     return
