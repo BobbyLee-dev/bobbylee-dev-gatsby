@@ -10,12 +10,13 @@ const NavBar = styled(animated.nav)`
   }
 `
 
-const MainMenu = styled.ul`
+const MainMenu = styled(animated.ul)`
   list-style: none;
   margin: 0;
-  padding-left: 40px;
+  padding-left: 30px;
+  display: flex;
   @media (max-width: 767px) {
-    background-color: blue;
+    flex-direction: column;
     position: fixed;
     width: 100%;
     height: 100%;
@@ -23,7 +24,7 @@ const MainMenu = styled.ul`
     right: 0;
     top: 0;
     bottom: 0;
-    display: none;
+    display: flex;
     padding-top: 100px;
     z-index: 11;
   }
@@ -32,37 +33,38 @@ const MainMenu = styled.ul`
   }
   @media (min-width: 768px) {
     padding-left: 0;
-    display: flex !important;
     justify-content: center;
     align-items: flex-end;
+    display: flex !important;
     opacity: 1 !important;
   }
   &.open {
-    background-color: blue;
-    display: flex;
     @media (max-width: 768px) {
-      background: linear-gradient(90deg, #e3c6be 29%, #f7eeea 100%);
+      background: #24292e;
     }
   }
   li {
+    width: fit-content;
     margin: 0;
     display: flex;
     align-items: center;
     a {
+      font-style: italic;
       color: #fff;
       text-transform: uppercase;
       display: block;
-      padding: 16px 20px;
+      padding: 20px;
       text-decoration: none;
-      font-size: 11px;
+      font-size: 16px;
       line-height: 100%;
       transition: opacity 0.2s;
       @media (min-width: 600px) {
-        /* font-size: 30px; */
+        font-size: 20px;
       }
       @media (min-width: 768px) {
+        color: #fff;
         padding: 10px 20px;
-        font-size: 11px;
+        font-size: 18px;
       }
       /* &:hover {
         opacity: 0.7;
@@ -76,7 +78,7 @@ const MainMenu = styled.ul`
       }
       ul {
         list-style: none;
-        background: #122738;
+        background: #24292e;
         position: absolute;
         margin: 0;
         border-top: 2px solid rgb(255, 120, 248);
@@ -85,6 +87,7 @@ const MainMenu = styled.ul`
           right: -175px;
         }
         @media (min-width: 768px) {
+          min-width: 170px;
           top: 48px;
           right: 0;
         }
@@ -92,6 +95,16 @@ const MainMenu = styled.ul`
           top: 51px;
         }
         li {
+          &:first-of-type {
+            a {
+              padding-top: 20px;
+            }
+          }
+          &:last-of-type {
+            a {
+              padding-bottom: 20px;
+            }
+          }
           a {
             padding: 10px 20px;
             width: max-content;
@@ -104,8 +117,6 @@ const MainMenu = styled.ul`
 `
 
 const StyledBurger = styled.button`
-  top: 5%;
-  left: 2rem;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
@@ -117,7 +128,7 @@ const StyledBurger = styled.button`
   cursor: pointer;
   padding: 0;
   z-index: 15;
-
+  position: relative;
   &:focus {
     outline: none;
   }
@@ -127,7 +138,7 @@ const StyledBurger = styled.button`
   div {
     width: 19px;
     height: 2px;
-    background: red;
+    background: #fff;
     border-radius: 10px;
     position: relative;
     transform-origin: 2px;
@@ -143,10 +154,12 @@ const MainNav = ({ wpSourceUrl }) => {
             url
             label
             parentId
+            id
             childItems {
               nodes {
                 url
                 label
+                id
               }
             }
           }
@@ -199,6 +212,7 @@ const MainNav = ({ wpSourceUrl }) => {
           setBurgerOpen(!isBurgerOpen)
           setNavOpen(!isNavOpen)
         }}
+        aria-label="Open Sub Menu"
       >
         <animated.div style={topBun} />
         <animated.div style={meat} />

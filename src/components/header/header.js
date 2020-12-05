@@ -5,18 +5,21 @@ import styled from '@emotion/styled'
 import MainNav from './main-nav'
 
 const Header = styled.header`
-  background-color: #2a2b2d;
+  background-color: #24292e;
+
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 10px 20px;
   @media (min-width: 1400px) {
-    padding: 10px 40px;
+    padding: 12px 40px;
   }
   @media (min-width: 2000px) {
-    padding: 10px 80px;
+    padding: 12px 80px;
   }
   .site-title {
+    z-index: 15;
+    position: relative;
     font-weight: bold;
     margin: 0;
     font-size: 22px;

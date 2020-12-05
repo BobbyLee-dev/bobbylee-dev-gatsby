@@ -2,11 +2,9 @@ import React, { useState } from 'react'
 import styled from '@emotion/styled'
 import { useSpring, animated } from 'react-spring'
 
-const mobileNavMaxBreakPoint = `889px`
-
 const SubMenuToggle = styled.button`
-  @media (max-width: ${mobileNavMaxBreakPoint}) {
-    margin-left: 20px;
+  @media (max-width: 768px) {
+    margin-left: 45px;
   }
   margin-right: 15px;
   margin-left: 10px;
