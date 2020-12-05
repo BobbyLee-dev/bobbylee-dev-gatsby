@@ -21,7 +21,8 @@ const Header = styled.header`
     line-height: 100%;
     z-index: 15;
     position: relative;
-    font-weight: bold;
+    font-weight: 400;
+    font-style: italic;
     margin: 0;
     font-size: 22px;
     margin: 0;
