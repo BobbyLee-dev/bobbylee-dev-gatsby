@@ -1,39 +1,41 @@
 import { Link } from 'gatsby'
 import React from 'react'
+import { Location } from '@reach/router'
 
-const SiteTitleEl = ({ siteTitle }) => {
-  const hasWindowAvailable = typeof window !== 'undefined'
-  if (hasWindowAvailable) {
-    if (window.location.pathname === '/') {
-      return (
-        <h1 className="site-title">
-          <Link
-            to="/"
-            style={{
-              textDecoration: `none`,
-            }}
-          >
-            {`{ ${siteTitle} }`}
-          </Link>{' '}
-        </h1>
-      )
-    } else {
-      return (
-        <div className="site-title">
-          <Link
-            to="/"
-            style={{
-              textDecoration: `none`,
-            }}
-          >
-            {`{ ${siteTitle} }`}
-          </Link>{' '}
-        </div>
-      )
-    }
-  } else {
-    return <h1>hi this didn't work</h1>
-  }
+const SiteTitleEl = ({ siteTitle, location }) => {
+  return (
+    <Location>
+      {({ location }) => {
+        if (location.pathname === '/') {
+          return (
+            <h1 className="site-title">
+              <Link
+                to="/"
+                style={{
+                  textDecoration: `none`,
+                }}
+              >
+                {`{ ${siteTitle} }`}
+              </Link>{' '}
+            </h1>
+          )
+        } else {
+          return (
+            <div className="site-title">
+              <Link
+                to="/"
+                style={{
+                  textDecoration: `none`,
+                }}
+              >
+                {`{ ${siteTitle} }`}
+              </Link>{' '}
+            </div>
+          )
+        }
+      }}
+    </Location>
+  )
 }
 
 export default SiteTitleEl

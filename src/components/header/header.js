@@ -18,6 +18,7 @@ const Header = styled.header`
     padding: 12px 80px;
   }
   .site-title {
+    line-height: 100%;
     z-index: 15;
     position: relative;
     font-weight: bold;
