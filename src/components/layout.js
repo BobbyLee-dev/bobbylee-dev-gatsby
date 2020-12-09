@@ -7,7 +7,7 @@ import Header from './header/header'
 import './layout.css'
 import { Global } from '@emotion/react'
 
-const Layout = ({ children }) => {
+const Layout = ({ children, page }) => {
   const wpData = useStaticQuery(graphql`
     query {
       allWp {
@@ -32,24 +32,12 @@ const Layout = ({ children }) => {
         wpSourceUrl={wpSettingsInfo.url}
       />
 
-      <div
-        style={{
-          margin: `0 auto`,
-          maxWidth: 960,
-          padding: `0 1.0875rem 1.45rem`,
-        }}
-      >
-        <main>{children}</main>
-        <footer
-          style={{
-            marginTop: `2rem`,
-          }}
-        >
-          © {new Date().getFullYear()}, Built with
-          {` `}
-          <a href="https://www.gatsbyjs.com">Gatsby</a>
-        </footer>
-      </div>
+      <main className={page + '-page'}>{children}</main>
+      <footer>
+        © {new Date().getFullYear()}, Built with
+        {` `}
+        <a href="https://www.gatsbyjs.com">Gatsby</a>
+      </footer>
     </>
   )
 }

@@ -12,18 +12,15 @@ import SEO from '../components/seo'
 
 const PageTemplate = ({ data: { page } }) => {
   return (
-    <Layout>
+    <Layout page={page.title.toLowerCase().replace(' ', '-')}>
       <SEO title={page.title} />
 
-      <article className="page" itemScope itemType="http://schema.org/Article">
-        {!page.isFrontPage && <h1 itemProp="headline">{parse(page.title)}</h1>}
+      {page.frontHeading && <h2 className="h1">{page.frontHeading.heading}</h2>}
+      {!page.isFrontPage && <h1 itemProp="headline">{parse(page.title)}</h1>}
 
-        {!!page.content && (
-          <section itemProp="articleBody">{parse(page.content)}</section>
-        )}
+      {!!page.content && parse(page.content)}
 
-        <hr />
-      </article>
+      <hr />
     </Layout>
   )
 }
@@ -41,6 +38,9 @@ export const pageQuery = graphql`
       content
       title
       isFrontPage
+      frontHeading {
+        heading
+      }
     }
   }
 `
