@@ -27,6 +27,7 @@ const SubMenuButton = ({ setSubMenuToggle, isSubMenuToggled }) => {
   return (
     <>
       <SubMenuToggle
+        aria-label="Open sub-menu"
         isSubMenuOpen={isSubMenuOpen}
         onClick={() => {
           setSubMenuToggle(!isSubMenuToggled)

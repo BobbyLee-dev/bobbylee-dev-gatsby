@@ -135,11 +135,13 @@ const MainMenu = styled(animated.ul)`
   margin: 0;
   padding-left: 30px;
   display: flex;
+  height: var(--mobileHeaderHeight);
   @media (max-width: 767px) {
     flex-direction: column;
     position: fixed;
     width: 100%;
-    height: 100%;
+    min-height: 100vh;
+    overflow-y: scroll;
     left: 0;
     right: 0;
     top: 0;
@@ -152,9 +154,10 @@ const MainMenu = styled(animated.ul)`
     padding-left: 150px;
   }
   @media (min-width: 768px) {
+    height: var(--tabletHeaderHeight);
     padding-left: 0;
     justify-content: center;
-    align-items: flex-end;
+    align-items: center;
     display: flex !important;
     opacity: 1 !important;
   }
@@ -169,11 +172,17 @@ const MainMenu = styled(animated.ul)`
     margin: 0;
     display: flex;
     align-items: center;
+    @media (min-width: 768px) {
+      height: 100%;
+    }
     a {
+      height: 100%;
       font-style: italic;
       color: #fff;
       text-transform: uppercase;
-      display: block;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       padding: 20px;
       text-decoration: none;
       font-size: 16px;
@@ -184,6 +193,10 @@ const MainMenu = styled(animated.ul)`
       }
       @media (min-width: 768px) {
         color: #fff;
+        padding: 10px 14px;
+        font-size: 16px;
+      }
+      @media (min-width: 980px) {
         padding: 10px 20px;
         font-size: 18px;
       }
@@ -202,18 +215,16 @@ const MainMenu = styled(animated.ul)`
         background: var(--primaryColor);
         position: absolute;
         margin: 0;
-        border-top: 2px solid rgb(255, 120, 248);
+        border-top: 2px solid #001a33;
         right: -120px;
         @media (min-width: 600px) {
           right: -175px;
         }
         @media (min-width: 768px) {
           min-width: 170px;
-          top: 48px;
-          right: 0;
-        }
-        @media (min-width: 1400px) {
-          top: 51px;
+          bottom: 0;
+          right: 50%;
+          transform: translate(50%, 100%);
         }
         li {
           &:first-of-type {
