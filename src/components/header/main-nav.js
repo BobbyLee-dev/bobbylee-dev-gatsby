@@ -215,7 +215,7 @@ const MainMenu = styled(animated.ul)`
         background: var(--primaryColor);
         position: absolute;
         margin: 0;
-        border-top: 2px solid #001a33;
+        border-top: 2px solid #00ffa2;
         right: -120px;
         @media (min-width: 600px) {
           right: -175px;

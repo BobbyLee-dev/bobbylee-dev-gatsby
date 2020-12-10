@@ -22,6 +22,11 @@ module.exports = {
         develop: {
           nodeUpdateInterval: 300,
         },
+        html: {
+          useGatsbyImage: true,
+          imageQuality: 80,
+          imageMaxWidth: 1400,
+        },
       },
     },
     {

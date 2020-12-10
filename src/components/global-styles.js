@@ -39,6 +39,11 @@ const GlobalStyles = css`
       text-align: center;
     }
   }
+
+  .wp-block-gallery,
+  .blocks-gallery-grid {
+    max-width: 100%;
+  }
 `
 
 export default GlobalStyles
