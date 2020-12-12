@@ -4,6 +4,7 @@ import { useStaticQuery, graphql } from 'gatsby'
 import GlobalStyles from './global-styles'
 
 import Header from './header/header'
+import Footer from './footer/footer'
 import './layout.css'
 import { Global } from '@emotion/react'
 
@@ -33,11 +34,7 @@ const Layout = ({ children, page }) => {
       />
 
       <main className={page + '-page'}>{children}</main>
-      <footer>
-        © {new Date().getFullYear()}, Built with
-        {` `}
-        <a href="https://www.gatsbyjs.com">Gatsby</a>
-      </footer>
+      <Footer />
     </>
   )
 }
