@@ -26,6 +26,7 @@ module.exports = {
           useGatsbyImage: true,
           imageQuality: 80,
           imageMaxWidth: 1400,
+          createStaticFiles: true,
         },
       },
     },
