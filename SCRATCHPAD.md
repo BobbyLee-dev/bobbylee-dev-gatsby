@@ -1,7 +1,5 @@
 # Todo
 
-- setup sass? or use css vars
-- Finish header
 - Footer - ACF for social data from WP - acf options page
 - Home Page - ACF
 - Resume - ACF
