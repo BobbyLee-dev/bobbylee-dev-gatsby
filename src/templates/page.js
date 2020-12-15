@@ -100,5 +100,7 @@ const HomeImages = styled.div`
   display: flex;
   > div {
     width: 47%;
+    max-width: 300px;
+    margin: auto;
   }
 `
