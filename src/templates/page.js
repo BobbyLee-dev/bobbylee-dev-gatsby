@@ -13,7 +13,9 @@ import SEO from '../components/seo'
 
 const PageTemplate = ({ data: { page } }) => {
   const wapuu = page.frontAcfFields.wapuu.localFile.childImageSharp.fluid
-  const ft = page.frontAcfFields.gatsbyLogo.localFile.childImageSharp.fluid
+  const gatsbyLogo =
+    page.frontAcfFields.gatsbyLogo.localFile.childImageSharp.fluid
+
   return (
     <Layout page={page.title.toLowerCase().replace(' ', '-')}>
       <SEO title={page.title} />
@@ -25,10 +27,10 @@ const PageTemplate = ({ data: { page } }) => {
 
       {!!page.content && parse(page.content)}
 
-      {page.frontAcfFields && (
+      {page.isFrontPage && (
         <HomeImages>
           <Img fluid={wapuu} key={wapuu.src} />
-          <Img fluid={ft} key={ft.src} />
+          <Img fluid={gatsbyLogo} key={gatsbyLogo.src} />
         </HomeImages>
       )}
 
