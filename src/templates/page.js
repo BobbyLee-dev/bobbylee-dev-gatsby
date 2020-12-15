@@ -97,10 +97,10 @@ export const pageQuery = graphql`
   }
 `
 const HomeImages = styled.div`
+  max-width: 300px;
+  margin: auto;
   display: flex;
   > div {
     width: 47%;
-    max-width: 300px;
-    margin: auto;
   }
 `
