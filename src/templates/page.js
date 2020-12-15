@@ -12,10 +12,6 @@ import Layout from '../components/layout'
 import SEO from '../components/seo'
 
 const PageTemplate = ({ data: { page } }) => {
-  const wapuu = page.frontAcfFields.wapuu.localFile.childImageSharp.fluid
-  const gatsbyLogo =
-    page.frontAcfFields.gatsbyLogo.localFile.childImageSharp.fluid
-
   return (
     <Layout page={page.title.toLowerCase().replace(' ', '-')}>
       <SEO title={page.title} />
@@ -29,8 +25,18 @@ const PageTemplate = ({ data: { page } }) => {
 
       {page.isFrontPage && (
         <HomeImages>
-          <Img fluid={wapuu} key={wapuu.src} />
-          <Img fluid={gatsbyLogo} key={gatsbyLogo.src} />
+          <Img
+            fluid={page.frontAcfFields.wapuu.localFile.childImageSharp.fluid}
+            key={page.frontAcfFields.wapuu.localFile.childImageSharp.fluid.src}
+          />
+          <Img
+            fluid={
+              page.frontAcfFields.gatsbyLogo.localFile.childImageSharp.fluid
+            }
+            key={
+              page.frontAcfFields.gatsbyLogo.localFile.childImageSharp.fluid.src
+            }
+          />
         </HomeImages>
       )}
 
