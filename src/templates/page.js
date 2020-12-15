@@ -64,7 +64,7 @@ export const pageQuery = graphql`
           localFile {
             childImageSharp {
               # Try editing the "maxWidth" value to generate resized images.
-              fluid(maxWidth: 500) {
+              fluid(maxWidth: 300) {
                 # In the GraphQL explorer, use field names
                 # like "src". In your site's code, remove them
                 # and use the fragments provided by Gatsby.
@@ -80,7 +80,7 @@ export const pageQuery = graphql`
           localFile {
             childImageSharp {
               # Try editing the "maxWidth" value to generate resized images.
-              fluid(maxWidth: 500) {
+              fluid(maxWidth: 300) {
                 # In the GraphQL explorer, use field names
                 # like "src". In your site's code, remove them
                 # and use the fragments provided by Gatsby.
