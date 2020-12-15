@@ -29,9 +29,12 @@ const Footer = () => {
   const socialArray =
     socialQuery.allWp.nodes[0].siteSettings.siteSettings.socialItems
   console.log(socialArray)
+
   return (
     <>
-      {socialArray.map(item => item.icon.localFile.absolutePath)}
+      {socialArray.map(item => {
+        return item.icon.localFile.absolutePath
+      })}
       <footer>© {new Date().getFullYear()} - Bobby Lee</footer>
     </>
   )

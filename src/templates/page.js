@@ -1,7 +1,8 @@
 import React from 'react'
 import { graphql } from 'gatsby'
-// import Image from 'gatsby-image'
+import Img from 'gatsby-image'
 import parse from 'html-react-parser'
+import styled from '@emotion/styled'
 
 // We're using Gutenberg so we need the block styles
 import '@wordpress/block-library/build-style/style.css'
@@ -11,14 +12,25 @@ import Layout from '../components/layout'
 import SEO from '../components/seo'
 
 const PageTemplate = ({ data: { page } }) => {
+  const wapuu = page.frontAcfFields.wapuu.localFile.childImageSharp.fluid
+  const ft = page.frontAcfFields.gatsbyLogo.localFile.childImageSharp.fluid
   return (
     <Layout page={page.title.toLowerCase().replace(' ', '-')}>
       <SEO title={page.title} />
 
-      {page.frontHeading && <h2 className="h1">{page.frontHeading.heading}</h2>}
+      {page.frontAcfFields.heading && (
+        <h2 className="h1">{page.frontAcfFields.heading}</h2>
+      )}
       {!page.isFrontPage && <h1 itemProp="headline">{parse(page.title)}</h1>}
 
       {!!page.content && parse(page.content)}
+
+      {page.frontAcfFields && (
+        <HomeImages>
+          <Img fluid={wapuu} key={wapuu.src} />
+          <Img fluid={ft} key={ft.src} />
+        </HomeImages>
+      )}
 
       <hr />
     </Layout>
@@ -32,15 +44,53 @@ export const pageQuery = graphql`
     # these variables are passed in via createPage.pageContext in gatsby-node.js
     $id: String!
   ) {
-    # selecting the current post by id
+    # selecting the current page by id
     page: wpPage(id: { eq: $id }) {
       id
       content
       title
       isFrontPage
-      frontHeading {
+      frontAcfFields {
         heading
+        wapuu {
+          localFile {
+            childImageSharp {
+              # Try editing the "maxWidth" value to generate resized images.
+              fluid(maxWidth: 500) {
+                # In the GraphQL explorer, use field names
+                # like "src". In your site's code, remove them
+                # and use the fragments provided by Gatsby.
+                ...GatsbyImageSharpFluid_withWebp_tracedSVG
+                # This fragment won't work in the GraphQL
+                # explorer, but you can use it in your site
+                # ...GatsbyImageSharpFluid_withWebp
+              }
+            }
+          }
+        }
+        gatsbyLogo {
+          localFile {
+            childImageSharp {
+              # Try editing the "maxWidth" value to generate resized images.
+              fluid(maxWidth: 500) {
+                # In the GraphQL explorer, use field names
+                # like "src". In your site's code, remove them
+                # and use the fragments provided by Gatsby.
+                ...GatsbyImageSharpFluid_withWebp_tracedSVG
+                # This fragment won't work in the GraphQL
+                # explorer, but you can use it in your site
+                # ...GatsbyImageSharpFluid_withWebp
+              }
+            }
+          }
+        }
       }
     }
+  }
+`
+const HomeImages = styled.div`
+  display: flex;
+  > div {
+    width: 47%;
   }
 `
