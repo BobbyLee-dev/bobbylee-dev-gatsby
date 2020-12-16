@@ -2,7 +2,7 @@ import { css } from '@emotion/react'
 
 const GlobalStyles = css`
   :root {
-    --primaryColor: #01376a;
+    --primaryColor: dodgerBlue;
     --lightColor: #ffffff;
     --darkTextColor: #001a33;
     --mobileHeaderHeight: 45px;

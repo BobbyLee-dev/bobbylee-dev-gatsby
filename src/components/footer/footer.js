@@ -1,8 +1,8 @@
 import React from 'react'
-import { useStaticQuery, graphql, Link } from 'gatsby'
-import parse from 'html-react-parser'
+import { useStaticQuery, graphql } from 'gatsby'
 import PropTypes from 'prop-types'
 import styled from '@emotion/styled'
+import SVG from 'react-inlinesvg'
 
 const Footer = () => {
   const socialQuery = useStaticQuery(graphql`
@@ -14,7 +14,8 @@ const Footer = () => {
               socialItems {
                 icon {
                   localFile {
-                    absolutePath
+                    publicURL
+                    id
                   }
                 }
                 link
@@ -25,19 +26,61 @@ const Footer = () => {
       }
     }
   `)
-
   const socialArray =
     socialQuery.allWp.nodes[0].siteSettings.siteSettings.socialItems
   console.log(socialArray)
-
   return (
-    <>
-      {socialArray.map(item => {
-        return item.icon.localFile.absolutePath
-      })}
-      <footer>© {new Date().getFullYear()} - Bobby Lee</footer>
-    </>
+    <SiteFooter>
+      <div className="f-social">
+        {socialArray.map(item => {
+          return (
+            <a
+              href={item.link}
+              target="_blank"
+              rel="nofollow noopener noreferrer"
+            >
+              <SVG
+                src={item.icon.localFile.publicURL}
+                key={item.icon.localFile.id}
+              />
+            </a>
+          )
+        })}
+      </div>
+      <div>© {new Date().getFullYear()} - Bobby Lee</div>
+    </SiteFooter>
   )
 }
 
 export default Footer
+
+const SiteFooter = styled.footer`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  @media (min-width: 768px) {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  .f-social {
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    @media (min-width: 768px) {
+      margin-bottom: 0;
+    }
+    a {
+      margin: 5px;
+      &::first-of-type {
+        margin-left: 0;
+      }
+      svg {
+        path {
+          fill: var(--darkTextColor);
+          fill: var(--darkTextColor);
+        }
+      }
+    }
+  }
+`
