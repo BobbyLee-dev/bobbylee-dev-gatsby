@@ -28,7 +28,6 @@ const Footer = () => {
   `)
   const socialArray =
     socialQuery.allWp.nodes[0].siteSettings.siteSettings.socialItems
-  console.log(socialArray)
   return (
     <SiteFooter>
       <div className="f-social">
@@ -55,6 +54,8 @@ const Footer = () => {
 export default Footer
 
 const SiteFooter = styled.footer`
+  background-color: var(--primaryColor);
+  color: var(--lightColor);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -71,14 +72,17 @@ const SiteFooter = styled.footer`
       margin-bottom: 0;
     }
     a {
+      padding: 5px;
       margin: 5px;
       &::first-of-type {
         margin-left: 0;
       }
       svg {
+        height: 30px;
+        width: auto;
         path {
-          fill: var(--darkTextColor);
-          fill: var(--darkTextColor);
+          fill: var(--lightColor);
+          fill: var(--lightColor);
         }
       }
     }

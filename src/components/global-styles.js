@@ -2,7 +2,7 @@ import { css } from '@emotion/react'
 
 const GlobalStyles = css`
   :root {
-    --primaryColor: dodgerBlue;
+    --primaryColor: rgb(27, 36, 47);
     --lightColor: #ffffff;
     --darkTextColor: #001a33;
     --mobileHeaderHeight: 45px;
@@ -11,6 +11,7 @@ const GlobalStyles = css`
   body {
     color: var(--darkTextColor);
     margin-top: var(--mobileHeaderHeight);
+    font-family: 'Lato', sans-serif;
     @media (min-width: 768px) {
       margin-top: var(--tabletHeaderHeight);
     }
@@ -31,7 +32,12 @@ const GlobalStyles = css`
   }
 
   main {
-    padding-top: 40px;
+    padding-top: 60px;
+    padding-bottom: 60px;
+    @media (min-width: 768px) {
+      padding-top: 80px;
+      padding-bottom: 80px;
+    }
   }
 
   .home-page {
