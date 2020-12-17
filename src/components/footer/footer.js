@@ -74,6 +74,9 @@ const SiteFooter = styled.footer`
     a {
       padding: 5px;
       margin: 5px;
+      line-height: 100%;
+      display: flex;
+      align-items: center;
       &::first-of-type {
         margin-left: 0;
       }
