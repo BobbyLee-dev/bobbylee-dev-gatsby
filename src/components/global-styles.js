@@ -11,7 +11,7 @@ const GlobalStyles = css`
   body {
     color: var(--darkTextColor);
     margin-top: var(--mobileHeaderHeight);
-    font-family: 'Lato', sans-serif;
+    ${'' /* font-family: 'Lato', sans-serif; */}
     @media (min-width: 768px) {
       margin-top: var(--tabletHeaderHeight);
     }

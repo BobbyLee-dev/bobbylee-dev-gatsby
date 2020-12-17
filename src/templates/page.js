@@ -122,7 +122,6 @@ const HomeImages = styled.div`
     width: 47%;
     stroke: #555;
     stroke-width: 0.5;
-    width: 250px;
     path {
       stroke-dasharray: 300;
       stroke-dashoffset: 300;
