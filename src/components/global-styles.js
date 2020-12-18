@@ -16,6 +16,15 @@ const GlobalStyles = css`
       margin-top: var(--tabletHeaderHeight);
     }
   }
+  #gatsby-focus-wrapper {
+    min-height: calc(100vh - var(--mobileHeaderHeight));
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    @media (min-width: 768px) {
+      min-height: calc(100vh - var(--tabletHeaderHeight));
+    }
+  }
 
   main,
   footer,
@@ -40,10 +49,8 @@ const GlobalStyles = css`
     }
   }
 
-  .home-page {
-    .h1 {
-      text-align: center;
-    }
+  .h1 {
+    text-align: center;
   }
 
   .wp-block-gallery,

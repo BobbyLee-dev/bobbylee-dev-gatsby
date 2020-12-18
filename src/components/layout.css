@@ -89,6 +89,7 @@ h1,
   text-rendering: optimizeLegibility;
   font-size: 2.25rem;
   line-height: 1.1;
+  text-align: center;
 }
 mark {
   background-color: #ff0;
