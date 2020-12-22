@@ -256,7 +256,7 @@ textarea {
 h2 {
   margin-left: 0;
   margin-right: 0;
-  margin-top: 0;
+  /* margin-top: 0; */
   padding-bottom: 0;
   padding-left: 0;
   padding-right: 0;
@@ -271,6 +271,7 @@ h2 {
   line-height: 1.1;
 }
 h3 {
+  color: dodgerblue !important;
   margin-left: 0;
   margin-right: 0;
   margin-top: 0;
@@ -597,4 +598,8 @@ pre tt:after {
   html {
     font-size: 100%;
   }
+}
+
+.margin-bottom-0 {
+  margin-bottom: 0;
 }

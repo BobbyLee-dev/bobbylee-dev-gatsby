@@ -37,11 +37,9 @@ const Footer = () => {
               href={item.link}
               target="_blank"
               rel="nofollow noopener noreferrer"
+              key={item.icon.localFile.id}
             >
-              <SVG
-                src={item.icon.localFile.publicURL}
-                key={item.icon.localFile.id}
-              />
+              <SVG src={item.icon.localFile.publicURL} />
             </a>
           )
         })}

@@ -49,13 +49,30 @@ const GlobalStyles = css`
     }
   }
 
+  h1 {
+    text-transform: uppercase;
+  }
+
   .h1 {
     text-align: center;
+    text-transform: uppercase;
   }
 
   .wp-block-gallery,
   .blocks-gallery-grid {
     max-width: 100%;
+  }
+
+  .wp-two-columns-only {
+    flex-wrap: nowrap;
+  }
+
+  .center-columns {
+    .wp-block-column {
+      flex-basis: auto;
+      flex-grow: unset;
+      margin: auto;
+    }
   }
 `
 
