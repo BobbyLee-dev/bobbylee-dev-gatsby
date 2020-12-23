@@ -52,6 +52,7 @@ template {
   display: none;
 }
 a {
+  color: dodgerblue;
   /* background-color: transparent; */
   /* -webkit-text-decoration-skip: objects; */
 }
@@ -261,7 +262,8 @@ h2 {
   padding-left: 0;
   padding-right: 0;
   padding-top: 0;
-  margin-bottom: 1.45rem;
+  margin-bottom: 1.45em;
+  margin-top: 1.45em;
   color: inherit;
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;

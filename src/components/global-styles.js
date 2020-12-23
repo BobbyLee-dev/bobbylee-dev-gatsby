@@ -8,8 +8,11 @@ const GlobalStyles = css`
     --mobileHeaderHeight: 45px;
     --tabletHeaderHeight: 60px;
   }
+  ::selection {
+    background: dodgerblue;
+    color: var(--lightColor);
+  }
   body {
-    color: var(--darkTextColor);
     margin-top: var(--mobileHeaderHeight);
     ${'' /* font-family: 'Lato', sans-serif; */}
     @media (min-width: 768px) {
@@ -24,6 +27,15 @@ const GlobalStyles = css`
     @media (min-width: 768px) {
       min-height: calc(100vh - var(--tabletHeaderHeight));
     }
+  }
+
+  main {
+    ${
+      '' /* color: var(--lightColor);
+    background-color: var(--darkTextColor); */
+    }
+    color: var(--darkTextColor);
+    background-color: var(--lightColor);
   }
 
   main,
@@ -47,6 +59,27 @@ const GlobalStyles = css`
       padding-top: 80px;
       padding-bottom: 80px;
     }
+
+    ${
+      '' /* &.resume-page {
+      padding-left: 20px;
+      padding-right: 20px;
+      @media (min-width: 768px) {
+        padding-left: 40px;
+        padding-right: 40px;
+        padding-right: calc(40px + (50vw - (700px / 2)));
+        padding-left: calc(40px + (50vw - (700px / 2)));
+      }
+      @media (min-width: 1100px) {
+        padding-right: calc(40px + (50vw - (1100px / 2)));
+        padding-left: calc(40px + (50vw - (1100px / 2)));
+      }
+    } */
+    }
+  }
+
+  .site-title {
+    text-transform: lowercase;
   }
 
   h1 {
@@ -72,6 +105,18 @@ const GlobalStyles = css`
       flex-basis: auto;
       flex-grow: unset;
       margin: auto;
+    }
+  }
+
+  .wp-block-button {
+    a {
+      &:hover {
+        background-color: dodgerblue;
+      }
+      :active {
+        position: relative;
+        top: 1px;
+      }
     }
   }
 `
