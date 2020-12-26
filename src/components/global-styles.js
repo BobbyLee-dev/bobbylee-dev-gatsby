@@ -119,6 +119,15 @@ const GlobalStyles = css`
       }
     }
   }
+
+  ${'' /* About Page */}
+  .interested-list {
+    column-count: 2;
+    @media (min-width: 768px) {
+      column-count: 3;
+    }
+  }
+  ${'' /* End About Page */}
 `
 
 export default GlobalStyles
