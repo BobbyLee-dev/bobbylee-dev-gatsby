@@ -91,7 +91,7 @@ const HomeImages = styled.div`
 
   svg {
     width: 47%;
-    stroke: dodgerblue;
+    stroke: #777;
     stroke-width: 0.5;
     path {
       stroke-dasharray: 300;
