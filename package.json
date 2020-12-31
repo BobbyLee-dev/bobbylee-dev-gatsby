@@ -39,7 +39,7 @@
   "license": "0BSD",
   "repository": {
     "type": "git",
-    "url": "https://github.com/gatsbyjs/gatsby-starter-default"
+    "url": "https://github.com/BobbyLee-dev/bobbylee-dev-gatsby"
   },
   "scripts": {
     "build": "gatsby build",
@@ -51,6 +51,6 @@
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
   },
   "bugs": {
-    "url": "https://github.com/gatsbyjs/gatsby-starter-default/issues"
+    "url": "https://github.com/BobbyLee-dev/bobbylee-dev-gatsby/issues"
   }
 }
