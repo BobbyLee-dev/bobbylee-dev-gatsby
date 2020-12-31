@@ -128,6 +128,10 @@ const GlobalStyles = css`
     }
   }
   ${'' /* End About Page */}
+
+  .contact-page {
+    text-align: center;
+  }
 `
 
 export default GlobalStyles

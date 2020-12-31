@@ -7,7 +7,6 @@ import parse from 'html-react-parser'
 import '@wordpress/block-library/build-style/style.css'
 import '@wordpress/block-library/build-style/theme.css'
 
-import Bio from '../components/bio'
 import Layout from '../components/layout'
 import SEO from '../components/seo'
 
@@ -26,28 +25,22 @@ const BlogPostTemplate = ({ data: { previous, next, post } }) => {
         itemScope
         itemType="http://schema.org/Article"
       >
-        <header>
-          <h1 itemProp="headline">{parse(post.title)}</h1>
+        <h1 itemProp="headline">{parse(post.title)}</h1>
 
-          <p>{post.date}</p>
+        <p>{post.date}</p>
 
-          {/* if we have a featured image for this post let's display it */}
-          {featuredImage?.fluid && (
-            <Image
-              fluid={featuredImage.fluid}
-              alt={featuredImage.alt}
-              style={{ marginBottom: 50 }}
-            />
-          )}
-        </header>
-
-        {!!post.content && (
-          <section itemProp="articleBody">{parse(post.content)}</section>
+        {/* if we have a featured image for this post let's display it */}
+        {featuredImage?.fluid && (
+          <Image
+            fluid={featuredImage.fluid}
+            alt={featuredImage.alt}
+            style={{ marginBottom: 50 }}
+          />
         )}
 
-        <footer>
-          <Bio />
-        </footer>
+        {!!post.content && (
+          <div itemProp="articleBody">{parse(post.content)}</div>
+        )}
       </article>
 
       <nav className="blog-post-nav">
