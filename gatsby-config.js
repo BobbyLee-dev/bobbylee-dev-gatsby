@@ -28,6 +28,9 @@ module.exports = {
           imageMaxWidth: 1400,
           createStaticFiles: true,
         },
+        schema: {
+          timeout: 80000,
+        },
       },
     },
     {
