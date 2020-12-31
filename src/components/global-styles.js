@@ -78,6 +78,10 @@ const GlobalStyles = css`
     }
   }
 
+  a {
+    color: blueviolet;
+  }
+
   .site-title {
     text-transform: lowercase;
   }
